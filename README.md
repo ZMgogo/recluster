@@ -16,7 +16,7 @@ To install recluster use:
 ```
 install.packages("remotes")
 
-remotes::install_github("leondap/recluster")
+remotes::install_github("ZMgogo/recluster")
 ```
 
 ### The zero problem
