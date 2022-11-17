@@ -1,4 +1,4 @@
-biodecrypt.plot<-function(x,minsize=0.3,pchid=1,cexid=0.1,square=0.001,col=c("red","darkgreen","blue","purple"), attributed=c("fade","points"), NUR="black", fading=50, ...){
+biodecrypt.plot<-function(x,minsize=0.3,pchid=1,cexid=0.1,square=0.001,col=c("red","darkgreen","blue","purple"), attributed="points", NUR="black", fading=50, ...){
 	if(x$type=="sep"){
 		data<-as.data.frame(x$table)
 		newcol<-as.character(paste(data[,1],data[,2],sep="_"))
