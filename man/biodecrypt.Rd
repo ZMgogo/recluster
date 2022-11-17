@@ -128,6 +128,7 @@ Leonardo Dapporto
 }
 \examples{
 # Create an example for a dataset
+set.seed(2)
 mat<-rbind(cbind(rnorm(n = 20, mean = 1, sd = 4),rnorm(n = 20, mean = 40, sd = 3)),
 cbind(rnorm(n = 20, mean = 7, sd = 5),rnorm(n = 20, mean = 45, sd = 2)))
 
@@ -136,20 +137,22 @@ id[sample(c(1:40))[1:10]]<-0
 
 # Make the separation with default parameters 
 # alpha gets high to include 95% of defaults cases and hulls are almost convex 
-\dontrun{attribution<-biodecrypt(mat,id, clipToCoast="no")}
+attribution<-biodecrypt(mat,id, clipToCoast="no")
 
 #plot the results
-\dontrun{plot(mat,type="n")}
-\dontrun{biodecrypt.plot(attribution)}
+plot(mat,type="n")
+biodecrypt.plot(attribution)
+mat_t <- mat[id==0, ]
+text(mat_t[1:10, 1], mat_t[1:10, 2], which(id==0), col='white')
 #Group plots into pies
-\dontrun{biodecrypt.plot(attribution, square=5, minsize=0.8)}
+# biodecrypt.plot(attribution, square=5, minsize=0.8)
 
 
 # Make the separation with custom parameters
 # With a lower fraction values the first hull (alpha equal to 1) can become more 
 #concave. Excluded dots works as a punctiform sub-hull in the attribution. 
-\dontrun{attribution<-biodecrypt(mat,id, alpha=c(1,5), buffer=20, ratio=2, fraction=0.80, 
-	minimum=3, clipToCoast="no")}
+# attribution<-biodecrypt(mat,id, alpha=c(1,5), buffer=20, ratio=2, fraction=0.80, 
+	minimum=3, clipToCoast="no")
 
 #plot the results
 \dontrun{plot(mat,type="n")}
